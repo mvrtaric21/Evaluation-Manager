@@ -14,5 +14,10 @@ namespace Evaluation_Manager.Models
         {
             return Password == password;
         }
+
+        internal void PerformEvaluation(Student selectedStudent, Activity activity, int points)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
