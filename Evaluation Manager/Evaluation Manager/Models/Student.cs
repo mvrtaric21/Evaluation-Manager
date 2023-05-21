@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Evaluation_Manager.Models
 {
-    internal class Student
+    public class Student : Person
     {
+        public int Grade { get; set; }
     }
 }

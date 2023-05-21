@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace Evaluation_Manager.Models
 {
-    internal class Person
+    public abstract class Person : object
     {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public override string ToString()
+        {
+            return base.ToString();
+            {
+                return FirstName + " " + LastName;
+            }
+        }
     }
 }
