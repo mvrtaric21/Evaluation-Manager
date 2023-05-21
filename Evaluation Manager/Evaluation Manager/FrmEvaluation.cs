@@ -1,4 +1,5 @@
-﻿using Evaluation_Manager.Models;
+﻿using DBLayer;
+using Evaluation_Manager.Models;
 using Evaluation_Manager.Repositories;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -83,5 +85,20 @@ namespace Evaluation_Manager
         {
             Close();
         }
+        public static void InsertEvaluation(Student student, Activity activity,Teacher teacher, int points)
+        {
+            string sql = $"INSERT INTO Evaluations (IdActivities, IdStudents, IdTeachers, EvaluationDate, Points) VALUES({ activity.Id}, { student.Id},{ teacher.Id}, GETDATE(), { points})";
+             DB.OpenConnection();
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
+        }
+        public static void UpdateEvaluation(Evaluation evaluation, Teacher teacher, int points)
+        {
+            string sql = $"UPDATE Evaluations SET IdTeachers = {teacher.Id},Points = { points}, EvaluationDate = GETDATE() WHERE IdActivities ={evaluation.Activity.Id} AND IdStudents = { evaluation.Student.Id }";
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
+        }
+
     }
 }

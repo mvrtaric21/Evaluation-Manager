@@ -41,6 +41,17 @@ namespace Evaluation_Manager.Repositories
             DB.CloseConnection();
             return evaluations;
         }
+
+        internal static void InsertEvaluation(Student student, Activity activity, TeacherRepository teacherRepository, int points)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void UpdateEvaluation(Evaluation evaluation, TeacherRepository teacherRepository, int points)
+        {
+            throw new NotImplementedException();
+        }
+
         private static Evaluation CreateObject(SqlDataReader reader)
         {
             int idActivities = int.Parse(reader["IdActivities"].ToString());
@@ -49,8 +60,7 @@ namespace Evaluation_Manager.Repositories
             var student = StudentRepository.GetStudent(idStudents);
             int idTeachers = int.Parse(reader["IdTeachers"].ToString());
             var teacher = TeacherRepository.GetTeacher(idTeachers);
-            DateTime evaluationDate =
-            DateTime.Parse(reader["EvaluationDate"].ToString());
+            DateTime evaluationDate = DateTime.Parse(reader["EvaluationDate"].ToString());
             int points = int.Parse(reader["Points"].ToString());
             var evaluation = new Evaluation
             {
