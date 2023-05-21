@@ -28,12 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.dgvStudents = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dgvStudents
+            // 
+            this.dgvStudents.AllowUserToOrderColumns = true;
+            this.dgvStudents.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStudents.Location = new System.Drawing.Point(46, 30);
+            this.dgvStudents.Name = "dgvStudents";
+            this.dgvStudents.RowHeadersWidth = 51;
+            this.dgvStudents.RowTemplate.Height = 24;
+            this.dgvStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvStudents.Size = new System.Drawing.Size(710, 364);
+            this.dgvStudents.TabIndex = 0;
+            this.dgvStudents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudents_CellContentClick);
+            // 
+            // FrmStudents
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dgvStudents);
+            this.Name = "FrmStudents";
             this.Text = "FrmStudents";
+            this.Load += new System.EventHandler(this.FrmStudents_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dgvStudents;
     }
 }
